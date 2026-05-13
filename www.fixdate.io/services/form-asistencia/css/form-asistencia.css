@@ -1,0 +1,551 @@
+/**
+ * Estilos del Formulario de Asistencia Flexible
+ * 
+ * CSS base con estructura + defaults visuales en TONOS GRISES.
+ * Cuando un modelo no tiene overrides propios, el formulario se ve
+ * en escala de grises como indicador visual de que falta personalización.
+ * 
+ * Los modelos sobreescriben colores/tipografías desde su propio CSS
+ * usando #modalAsistencia .form-flex-* para mayor especificidad.
+ * 
+ * Todos los selectores usan el prefijo .form-flex- para evitar conflictos.
+ * 
+ * @package FormAsistencia
+ * @author Fixdate
+ */
+
+/* ============================================================================
+   CONTENEDOR PRINCIPAL
+   ============================================================================ */
+
+.form-flex-container {
+    font-family: inherit;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-flex-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-flex-subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #888;
+    font-size: 0.95em;
+}
+
+
+/* ============================================================================
+   INDICADOR DE PROGRESO (WIZARD)
+   ============================================================================ */
+
+.form-flex-progreso {
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.form-flex-progreso-pasos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-flex-progreso-paso {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.form-flex-progreso-paso.activo {
+    background: #999;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.form-flex-progreso-paso.completado {
+    background: #888;
+    color: #fff;
+}
+
+.form-flex-progreso-numero {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-flex-progreso-linea {
+    flex: 1;
+    height: 3px;
+    background: #e0e0e0;
+    margin: 0 8px;
+    max-width: 60px;
+    transition: background 0.3s ease;
+}
+
+.form-flex-progreso-linea.completada {
+    background: #888;
+}
+
+
+/* ============================================================================
+   CONTENEDOR DE PASOS
+   ============================================================================ */
+
+.form-flex-pasos {
+    position: relative;
+    overflow: hidden;
+}
+
+.form-flex-paso {
+    display: none;
+    animation: formFlexFadeIn 0.3s ease;
+}
+
+.form-flex-paso.activo {
+    display: block;
+}
+
+@keyframes formFlexFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.form-flex-paso-titulo {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center;
+}
+
+
+/* ============================================================================
+   CAMPOS DEL FORMULARIO
+   ============================================================================ */
+
+.form-flex-campo {
+    margin-bottom: 20px;
+}
+
+.form-flex-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.form-flex-label i {
+    margin-right: 6px;
+    color: #888;
+}
+
+.form-flex-required {
+    color: #c62828;
+    margin-left: 2px;
+}
+
+.form-flex-input,
+.form-flex-textarea,
+.form-flex-select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #555;
+    transition: box-shadow 0.3s;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.form-flex-input:focus,
+.form-flex-textarea:focus,
+.form-flex-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+.form-flex-input::placeholder,
+.form-flex-textarea::placeholder {
+    color: #aaa;
+}
+
+.form-flex-help-text {
+    display: block;
+    font-size: 0.8em;
+    color: #999;
+    margin-top: 5px;
+    line-height: 1.3;
+    opacity: 0.75;
+}
+
+.form-flex-textarea {
+    resize: vertical;
+    min-height: 50px;
+}
+
+.form-flex-select option {
+    color: #555;
+    background: #fff;
+}
+
+.form-flex-select option[disabled] {
+    color: #aaa;
+}
+
+
+/* ============================================================================
+   RADIO BUTTONS Y CHECKBOXES
+   ============================================================================ */
+
+.form-flex-radio-group,
+.form-flex-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-flex-radio-option,
+.form-flex-checkbox-option {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #fff;
+    color: #555;
+}
+
+@media (hover: hover) {
+    .form-flex-radio-option:hover,
+    .form-flex-checkbox-option:hover {
+        background: #f5f5f5;
+    }
+}
+
+.form-flex-radio-option input,
+.form-flex-checkbox-option input {
+    display: none;
+}
+
+.form-flex-radio-label,
+.form-flex-checkbox-label {
+    color: inherit;
+    font-size: 0.95em;
+}
+
+.form-flex-radio-option:has(input:checked),
+.form-flex-checkbox-option:has(input:checked) {
+    background: rgba(0, 0, 0, 0.04);
+    color: #444;
+    font-weight: 500;
+}
+
+@media (hover: hover) {
+    .form-flex-radio-option:hover:has(input:checked),
+    .form-flex-checkbox-option:hover:has(input:checked) {
+        color: #333;
+    }
+}
+
+
+/* ============================================================================
+   EVENTOS (CEREMONIA/CELEBRACIÓN)
+   ============================================================================ */
+
+.form-flex-eventos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-flex-evento {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+}
+
+.form-flex-evento-nombre {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 12px;
+    font-size: 1em;
+    color: #555;
+}
+
+.form-flex-evento-opciones {
+    display: flex;
+    gap: 10px;
+}
+
+.form-flex-evento-opcion {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    color: #555;
+}
+
+.form-flex-evento-opcion input {
+    display: none;
+}
+
+.form-flex-evento-opcion span {
+    font-size: 0.9em;
+    color: inherit;
+}
+
+@media (hover: hover) {
+    .form-flex-evento-opcion:hover {
+        background: rgba(0, 0, 0, 0.02);
+    }
+}
+
+.form-flex-evento-si:has(input:checked) {
+    background: rgba(0, 0, 0, 0.04);
+    color: #444;
+}
+
+.form-flex-evento-no:has(input:checked) {
+    background: rgba(0, 0, 0, 0.03);
+    color: #666;
+}
+
+
+/* ============================================================================
+   MENSAJES DE ERROR
+   ============================================================================ */
+
+.form-flex-error {
+    color: #c62828;
+    font-size: 0.85em;
+    margin-top: 5px;
+    min-height: 20px;
+}
+
+.form-flex-error:empty {
+    display: none;
+}
+
+
+/* ============================================================================
+   BOTONES DE NAVEGACIÓN
+   ============================================================================ */
+
+.form-flex-navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.form-flex-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-flex-btn:focus,
+.form-flex-btn:active,
+.form-flex-btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.form-flex-btn-anterior {
+    background: #f0f0f0;
+    color: #777;
+}
+
+@media (hover: hover) {
+    .form-flex-btn-anterior:hover {
+        background: #e0e0e0;
+        color: #555;
+    }
+}
+
+.form-flex-btn-siguiente,
+.form-flex-btn-enviar {
+    background: #999;
+    color: #fff;
+}
+
+@media (hover: hover) {
+    .form-flex-btn-siguiente:hover,
+    .form-flex-btn-enviar:hover {
+        background: #777;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.form-flex-btn i,
+.form-flex-btn-icon {
+    color: inherit;
+    font-size: 0.9em;
+    line-height: 1;
+}
+
+.form-flex-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.form-flex-btn-placeholder {
+    width: 100px;
+}
+
+
+/* ============================================================================
+   ESTADOS DE CARGA Y ÉXITO
+   form-flex-loading-spinner / form-flex-loading-text: convención para overrides
+   desde style.css del modelo (form-flex-spinner se mantiene por compatibilidad).
+   ============================================================================ */
+
+.form-flex-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: inherit;
+}
+
+.form-flex-loading {
+    text-align: center;
+    padding: 40px;
+}
+
+.form-flex-loading p,
+.form-flex-loading-text {
+    color: #888;
+}
+
+.form-flex-spinner,
+.form-flex-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e0e0e0;
+    border-top-color: #999;
+    border-radius: 50%;
+    animation: formFlexSpin 0.8s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes formFlexSpin {
+    to { transform: rotate(360deg); }
+}
+
+.form-flex-exito {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.form-flex-exito-titulo {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.form-flex-exito-mensaje {
+    color: #888;
+    font-size: 1em;
+    margin-bottom: 25px;
+}
+
+.form-flex-btn-otro-invitado {
+    background: transparent;
+    color: #777;
+    margin-top: 10px;
+}
+
+@media (hover: hover) {
+    .form-flex-btn-otro-invitado:hover {
+        background: #f5f5f5;
+        color: #555;
+    }
+}
+
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 600px) {
+    .form-flex-container {
+        padding: 15px;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .form-flex-progreso-paso {
+        width: 30px;
+        height: 30px;
+    }
+
+    .form-flex-progreso-numero {
+        font-size: 12px;
+    }
+
+    .form-flex-progreso-linea {
+        max-width: 40px;
+    }
+
+    .form-flex-evento-opciones {
+        flex-direction: column;
+    }
+
+    .form-flex-navegacion {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .form-flex-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 12px 16px;
+    }
+
+    .form-flex-btn-placeholder {
+        display: none;
+    }
+}
