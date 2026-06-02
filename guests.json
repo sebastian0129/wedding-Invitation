@@ -1,0 +1,22 @@
+{
+  "familia-garcia": {
+    "pases": 4,
+    "acompanantes": 1,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "Juan García",
+      "Sofía García",
+      "Mateo García"
+    ]
+  },
+
+  "familia-rodriguez": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Nos encantará compartir contigo.",
+    "invitados": [
+      "Carlos Rodríguez",
+      "Laura Rodríguez"
+    ]
+  }
+}
