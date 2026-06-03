@@ -3513,7 +3513,7 @@
 
 
   <!-- Modal sugerir cancion-->
-  <div id="modalSugerirCancion" class="modal fade" tabindex="-1">
+  <div id="modalSugerirCancion" class="modal fade" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
 
@@ -3524,7 +3524,7 @@
           </button>
 
           <div class="white-circle-icon">
-            <img class="" src="www.fixdate.io/modelo-invitacion/30/img/img_circuloCanciones.svg" alt="">
+            <img class="" src="https://fixdate.io/modelo-invitacion/30/img/img_circuloCanciones.svg" alt="">
           </div>
 
 
@@ -3583,7 +3583,7 @@
 
 
   <!-- Modal vestuario-->
-  <div id="modalVestuario" class="modal fade" tabindex="-1">
+  <div id="modalVestuario" class="modal fade" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
 
@@ -3624,7 +3624,7 @@
 
 
   <!-- Modal tips-->
-  <div id="modalTips" class="modal fade" tabindex="-1">
+  <div id="modalTips" class="modal fade" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
 
@@ -3664,7 +3664,7 @@
 
 
   <!-- Modal regalos-->
-  <div id="modalRegalos" class="modal fade" tabindex="-1">
+  <div id="modalRegalos" class="modal fade" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
 
@@ -3701,7 +3701,7 @@
 
 
   <!-- Modal mapa-->
-  <div id="modalMapa" class="modal fade" tabindex="-1">
+  <div id="modalMapa" class="modal fade" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
 
@@ -4561,171 +4561,172 @@
 
       // Remuevo mensajes de error anteriores
       $("#error-form").remove();
+      $('#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5').show();
+      $('#modalSugerirCancion .msj-content').hide().html('');
+      $('#modalSugerirCancion .modal-body').removeClass('fix-height');
 
-      $('#modalSugerirCancion').modal({
-        backdrop: 'static'
-      })
-
-    });
-
-
-
-    // Validacion de form.
-    function isOkSugerirCancion() {
-
-
-      // Remuevo mensajes de error anteriores
-      $("#error-form").remove();
-
-      // Variables necesarias para la validacion
-      var flag = true;
-      var err = '';
-
-
-      // Variables del form para validar.
-      var sugerenciaName = $.trim($("#nombreSugerencia").val());
-      var sugerenciaDescription = $.trim($("#descripcionSugerencia").val());
-      var sugerenciaLink = $.trim($("#linkSugerencia").val());
-
-
-
-      // Descripcion
-      if (sugerenciaDescription == '') {
-        flag = false;
-        err = lang_cancionRequerida;
-      } else {
-        if (sugerenciaDescription.length > 50) {
-          flag = false;
-          err = lang_caracteresCancionSugerencia;
-        }
-      }
-
-      // Link
-      if (sugerenciaLink != '') {
-
-        if (!is_url(sugerenciaLink)) {
-          flag = false;
-          err = lang_linkIncorrecto;
-        }
-        if (sugerenciaLink.length > 250) {
-          flag = false;
-          err = lang_caracteresLinkSugerencia;
-        }
-
-      }
-
-      // Nombre
-      if (sugerenciaName == '') {
-        flag = false;
-        err = lang_nombreRequerido;
-      } else {
-        if (sugerenciaName.length > 20) {
-          flag = false;
-          err = lang_caracteresNombreSugerencia;
-        }
-      }
-
-
-      // Si hay error
-      if (flag === false) {
-
-        // Imprimo el error
-        $('#formSugerirCancion').after('<span id="error-form">' + err + '</span>');
-
-      }
-
-      // Retorno el estado de la validacion
-      return flag;
-
-    }
-
-
-
-    // Enviar sugerencia
-    $('body').on('click', '#sendSugerenciaCancion', function (e) {
-
-      e.preventDefault();
-
-
-      if (isOkSugerirCancion()) //Form bien validado
-      {
-
-        // Load and disabled buttom.
-        $("#sendSugerenciaCancion").text(lang_enviandoSugerencia + "...");
-        $("#sendSugerenciaCancion").prop("disabled", true);
-
-        // Obtengo el Form.
-        var formulario = $("#formSugerirCancion")[0];
-
-        // Obtengo los datos del formulario
-        var datos = new FormData(formulario);
-
-
-        // Visualizar como viajan los datos
-        for (var pair of datos.entries()) {
-          console.log(pair[0] + ", " + pair[1]);
-        }
-
-
-        // Envio con fetch los datos mediante POST
-        fetch(_pathApp + "producto/fetchs/sugerir-cancion.php", {
-          method: "POST",
-          body: datos
-        })
-          // Promesas fetch
-          .then(res => res.json())
-          .then(data => {
-
-            // Si recibo error 
-            if (data.error === true) {
-
-              $("#sendSugerenciaCancion").text(lang_sugerirCancion);
-              $("#sendSugerenciaCancion").prop("disabled", false);
-
-              // Imprimo el error
-              $('#formSugerirCancion').after('<span id="error-form">' + data.desc + '</span>');
-            }
-
-            // Si no hay error 
-            if (data.error === false) {
-
-              $("#sendSugerenciaCancion").text(lang_sugerirCancion);
-              $("#sendSugerenciaCancion").prop("disabled", false);
-
-
-              // Oculto elementos del form y reseteo
-              $('#formSugerirCancion')[0].reset();
-              $('#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5').hide();
-
-
-              // Acomodo el css para centrar mensaje
-              $('#modalSugerirCancion .modal-body').addClass('fix-height');
-
-
-              // Muestro mensaje de exito
-
-              $('#modalSugerirCancion .msj-content').html(
-                "<h5>" + lang_sugerirCancionMsjExito_1 + "</h5><p>" + lang_sugerirCancionMsjExito_2 + "</p>"
-              ).show();
-
-
-              // Cierro modal y vuelvo a activar form
-              setTimeout(function () {
-
-                $('#modalSugerirCancion').modal('hide');
-                $('#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5').show();
-                $('#modalSugerirCancion .msj-content').html('').hide();
-                $('#modalSugerirCancion .modal-body').removeClass('fix-height');
-
-              }, 4000);
-
-            }
-
-          });
-      }
-
+      $('#modalSugerirCancion').appendTo('body').modal('show');
 
     });
+
+
+
+    // // Validacion de form.
+    // function isOkSugerirCancion() {
+
+
+    //   // Remuevo mensajes de error anteriores
+    //   $("#error-form").remove();
+
+    //   // Variables necesarias para la validacion
+    //   var flag = true;
+    //   var err = '';
+
+
+    //   // Variables del form para validar.
+    //   var sugerenciaName = $.trim($("#nombreSugerencia").val());
+    //   var sugerenciaDescription = $.trim($("#descripcionSugerencia").val());
+    //   var sugerenciaLink = $.trim($("#linkSugerencia").val());
+
+
+
+    //   // Descripcion
+    //   if (sugerenciaDescription == '') {
+    //     flag = false;
+    //     err = lang_cancionRequerida;
+    //   } else {
+    //     if (sugerenciaDescription.length > 50) {
+    //       flag = false;
+    //       err = lang_caracteresCancionSugerencia;
+    //     }
+    //   }
+
+    //   // Link
+    //   if (sugerenciaLink != '') {
+
+    //     if (!is_url(sugerenciaLink)) {
+    //       flag = false;
+    //       err = lang_linkIncorrecto;
+    //     }
+    //     if (sugerenciaLink.length > 250) {
+    //       flag = false;
+    //       err = lang_caracteresLinkSugerencia;
+    //     }
+
+    //   }
+
+    //   // Nombre
+    //   if (sugerenciaName == '') {
+    //     flag = false;
+    //     err = lang_nombreRequerido;
+    //   } else {
+    //     if (sugerenciaName.length > 20) {
+    //       flag = false;
+    //       err = lang_caracteresNombreSugerencia;
+    //     }
+    //   }
+
+
+    //   // Si hay error
+    //   if (flag === false) {
+
+    //     // Imprimo el error
+    //     $('#formSugerirCancion').after('<span id="error-form">' + err + '</span>');
+
+    //   }
+
+    //   // Retorno el estado de la validacion
+    //   return flag;
+
+    // }
+
+
+
+    // // Enviar sugerencia
+    // $('body').on('click', '#sendSugerenciaCancion', function (e) {
+
+    //   e.preventDefault();
+
+
+    //   if (isOkSugerirCancion()) //Form bien validado
+    //   {
+
+    //     // Load and disabled buttom.
+    //     $("#sendSugerenciaCancion").text(lang_enviandoSugerencia + "...");
+    //     $("#sendSugerenciaCancion").prop("disabled", true);
+
+    //     // Obtengo el Form.
+    //     var formulario = $("#formSugerirCancion")[0];
+
+    //     // Obtengo los datos del formulario
+    //     var datos = new FormData(formulario);
+
+
+    //     // Visualizar como viajan los datos
+    //     for (var pair of datos.entries()) {
+    //       console.log(pair[0] + ", " + pair[1]);
+    //     }
+
+
+    //     // Envio con fetch los datos mediante POST
+    //     fetch(_pathApp + "producto/fetchs/sugerir-cancion.php", {
+    //       method: "POST",
+    //       body: datos
+    //     })
+    //       // Promesas fetch
+    //       .then(res => res.json())
+    //       .then(data => {
+
+    //         // Si recibo error 
+    //         if (data.error === true) {
+
+    //           $("#sendSugerenciaCancion").text(lang_sugerirCancion);
+    //           $("#sendSugerenciaCancion").prop("disabled", false);
+
+    //           // Imprimo el error
+    //           $('#formSugerirCancion').after('<span id="error-form">' + data.desc + '</span>');
+    //         }
+
+    //         // Si no hay error 
+    //         if (data.error === false) {
+
+    //           $("#sendSugerenciaCancion").text(lang_sugerirCancion);
+    //           $("#sendSugerenciaCancion").prop("disabled", false);
+
+
+    //           // Oculto elementos del form y reseteo
+    //           $('#formSugerirCancion')[0].reset();
+    //           $('#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5').hide();
+
+
+    //           // Acomodo el css para centrar mensaje
+    //           $('#modalSugerirCancion .modal-body').addClass('fix-height');
+
+
+    //           // Muestro mensaje de exito
+
+    //           $('#modalSugerirCancion .msj-content').html(
+    //             "<h5>" + lang_sugerirCancionMsjExito_1 + "</h5><p>" + lang_sugerirCancionMsjExito_2 + "</p>"
+    //           ).show();
+
+
+    //           // Cierro modal y vuelvo a activar form
+    //           setTimeout(function () {
+
+    //             $('#modalSugerirCancion').modal('hide');
+    //             $('#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5').show();
+    //             $('#modalSugerirCancion .msj-content').html('').hide();
+    //             $('#modalSugerirCancion .modal-body').removeClass('fix-height');
+
+    //           }, 4000);
+
+    //         }
+
+    //       });
+    //   }
+
+
+    // });
   </script>
 
 
@@ -4736,9 +4737,7 @@
 
       e.preventDefault();
 
-      $('#modalVestuario').modal({
-        backdrop: 'static'
-      })
+      $('#modalVestuario').appendTo('body').modal('show');
 
     });
   </script>
@@ -4751,9 +4750,9 @@
 
       e.preventDefault();
 
-      $('#modalTips').modal({
-        backdrop: 'static'
-      })
+
+
+      $('#modalTips').appendTo('body').modal('show');
 
     });
   </script>
@@ -4766,9 +4765,7 @@
 
       e.preventDefault();
 
-      $('#modalRegalos').modal({
-        backdrop: 'static'
-      })
+      $('#modalRegalos').appendTo('body').modal('show');
 
     });
   </script>
@@ -4846,9 +4843,7 @@
       $('.ampliar-mapa').attr('href', linkMaps);
 
       // Abrir modal
-      $('#modalMapa').modal({
-        backdrop: 'static'
-      });
+      $('#modalMapa').appendTo('body').modal('show');
 
     });
 
