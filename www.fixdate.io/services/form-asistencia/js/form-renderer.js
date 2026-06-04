@@ -942,7 +942,7 @@
             const form = e.target;
             const formData = new FormData(form);
             const respuestas = this.formDataToObject(formData);
-
+            respuestas.nombre_invitado = this.invitados[respuestas.id_invitado_grupo -1];
             // Manejar acompañante: reemplazar id_invitado_grupo por nombre_invitado + flag
             if (respuestas.id_invitado_grupo === '__acompanante__') {
                 delete respuestas.id_invitado_grupo;
@@ -951,6 +951,7 @@
                 delete respuestas.nombre_acompanante;
             } else {
                 delete respuestas.nombre_acompanante;
+                respuestas.es_acompanante = false;
             }
 
             // Excluir respuestas de campos ocultos por condición
@@ -987,20 +988,19 @@
             }
             
             try {
+                const formData = new FormData();
+                const params = new URLSearchParams(window.location.search);
+                const grupoId = params.get("id");
+                formData.append('invitacion', this.invitacionEnc);
+                formData.append('token', this.token);
+                formData.append('id_grupo', grupoId);
+                formData.append('respuestas', JSON.stringify(respuestas));
+                formData.append('idioma', this.idioma);
+                formData.append('config_version', this.configVersion);
+
                 const response = await fetch(this.submitUrl, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    credentials: 'same-origin',
-                    body: JSON.stringify({
-                        invitacion: this.invitacionEnc,
-                        token: this.token,
-                        id_grupo: this.idGrupo,
-                        respuestas: respuestas,
-                        idioma: this.idioma,
-                        config_version: this.configVersion
-                    })
+                    body: formData
                 });
                 
                 const result = await response.json();

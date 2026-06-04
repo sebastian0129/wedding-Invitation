@@ -2346,6 +2346,7 @@
 
 
   </section>
+
   <!-- Fiesta-->
   <section class="fiesta">
 
@@ -2589,6 +2590,7 @@
       </div>
     </div>
   </section>
+
   <!-- Regalos-->
   <section class="regalos">
 
@@ -2935,6 +2937,7 @@
       </div>
     </div>
   </section>
+
   <!-- Instagram-->
   <section class="instagram">
 
@@ -3016,6 +3019,7 @@
       </div>
     </div>
   </section>
+
   <!-- Footer-->
   <section class="footer">
     <div class="container">
@@ -3084,6 +3088,7 @@
 
     </div>
   </section>
+
   <!-- Firma-->
   <footer>
     <div class="container">
@@ -3244,62 +3249,6 @@
                         <div class="form-flex-error" id="error_evento_celebracion"></div>
                       </div>
                     </div>
-                    <!-- <div class="form-flex-paso" data-paso="4" data-campo-id="restricciones_alimentarias"
-                      data-condicion-tipo="evento" data-condicion-objetivo="celebracion" data-condicion-valor="si"
-                      data-contexto-libre="1" data-contexto-grupo="1">
-                      <div class="form-flex-campo" data-campo="restricciones_alimentarias" data-tipo="textarea">
-                        <label class="form-flex-label">
-                          Restricciones Alimentarias
-
-                        </label><textarea id="campo_restricciones_alimentarias" name="restricciones_alimentarias"
-                          class="form-flex-textarea" rows="2"></textarea><small class="form-flex-help-text">Indícanos si
-                          necesita algún menú especial, celíaco, vegano, vegetariano, etc.</small>
-                        <div class="form-flex-error" id="error_restricciones_alimentarias"></div>
-                      </div>
-                    </div>
-                    <div class="form-flex-paso" data-paso="5" data-campo-id="autobus_simple"
-                      data-condicion-tipo="evento" data-condicion-objetivo="celebracion" data-condicion-valor="si"
-                      data-contexto-libre="1" data-contexto-grupo="1">
-                      <div class="form-flex-campo" data-campo="autobus_simple" data-tipo="radio">
-                        <label class="form-flex-label">
-                          ¿Necesitas autobús?
-                          <span class="form-flex-required">*</span>
-                        </label>
-                        <div class="form-flex-radio-group"><label class="form-flex-radio-option">
-                            <input type="radio" name="autobus_simple" value="1" required="">
-                            <span class="form-flex-radio-label">Si</span>
-                          </label><label class="form-flex-radio-option">
-                            <input type="radio" name="autobus_simple" value="2">
-                            <span class="form-flex-radio-label">No</span>
-                          </label></div>
-                        <div class="form-flex-error" id="error_autobus_simple"></div>
-                      </div>
-                    </div>
-                    <div class="form-flex-paso" data-paso="6" data-campo-id="ninios_cuantos"
-                      data-condicion-tipo="evento" data-condicion-objetivo="celebracion" data-condicion-valor="si"
-                      data-contexto-libre="1" data-contexto-grupo="1">
-                      <div class="form-flex-campo" data-campo="ninios_cuantos" data-tipo="number">
-                        <label class="form-flex-label">
-                          En caso de asistir con niños, indica cuantos
-
-                        </label><input type="number" id="campo_ninios_cuantos" name="ninios_cuantos"
-                          class="form-flex-input form-flex-number" min="0">
-                        <div class="form-flex-error" id="error_ninios_cuantos"></div>
-                      </div>
-                    </div>
-                    <div class="form-flex-paso" data-paso="7" data-campo-id="mensaje_novios" data-contexto-libre="1"
-                      data-contexto-grupo="1">
-                      <div class="form-flex-campo" data-campo="mensaje_novios" data-tipo="textarea">
-                        <label class="form-flex-label">
-                          Mensaje a los novios
-
-                        </label><textarea id="campo_mensaje_novios" name="mensaje_novios" class="form-flex-textarea"
-                          rows="2"></textarea><small class="form-flex-help-text">Puedes dejar un mensaje de cariño a los
-                          novios</small>
-                        <div class="form-flex-error" id="error_mensaje_novios"></div>
-                      </div>
-                    </div>
-                  </div> -->
                     <div class="form-flex-navegacion">
                       <button type="button" class="form-flex-btn form-flex-btn-anterior" data-accion="anterior"
                         style="display:none;">
@@ -3326,6 +3275,7 @@
 
             <script>
               function initForm(grupo) {
+                console.log(grupo.invitados);
                 new FormAsistenciaFlex.FormRenderer({
                   containerId: 'form-asistencia-flex',
                   config: {
@@ -3375,7 +3325,7 @@
                       es: "No asistiré"
                     }
                   },
-                  submitUrl: 'https://script.google.com/macros/s/AKfycbwlhML8ZtXwyF9uXkeFr6Tk9zc7wQcImyXxQdUmb0l6AHgysRXeyFyaZDpaQ8XIHH90Fw/exec',
+                  submitUrl: 'https://script.google.com/macros/s/AKfycbwc0EceIOiULeYVHZwOosloa9-m7Q2Id9WdE1ExLIV_jIJYEMhJVexBmi27DQGJ5mmt/exec',
                   demoMode: false,
                   onSuccess: function (result) {
                     console.log("RSVP enviado", result);
@@ -4334,7 +4284,7 @@
 
         console.log("Enviando datos de asistencia...", datos);
         // Envio con fetch los datos mediante POST
-        fetch("https://script.google.com/macros/s/AKfycbx613zl3fD3L8tfXZUNn3D5o-rfPhmGmmlRPmIJtF-oiSXSGVYfhXRIa56JuGPu8zUz/exec",
+        fetch("https://script.google.com/macros/s/AKfycbwc0EceIOiULeYVHZwOosloa9-m7Q2Id9WdE1ExLIV_jIJYEMhJVexBmi27DQGJ5mmt/exec",
           {
             method: "POST",
             body: datos
