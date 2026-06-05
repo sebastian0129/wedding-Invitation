@@ -5407,6 +5407,63 @@
   </script>
 
 
+  ## Script para enviar sugerencias
+  <script>
+    $('body').on('click', '#sendSugerenciaCancion', function (e) {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      e.preventDefault();
+      var cancion = $('#descripcionSugerencia').val().trim();
+      var invitado = $('#nombreSugerencia').val().trim();
+      var link = $('#linkSugerencia').val().trim();
+
+      if (!cancion || !invitado) {
+        alert('Por favor, completa todos los campos.');
+        return;
+      }
+      const formData = new FormData();
+      
+      formData.append("id", id);
+      formData.append("invitado", invitado);
+      formData.append("cancion", cancion);
+      formData.append("link", link);
+
+      fetch(
+        "https://script.google.com/macros/s/AKfycbzCNBIm3YNwPubOjTWkfdPxsa_6jIIZhB7i83PQvR5nKJ3bY2RUDddmZ340czNhpUOA/exec",
+        {
+          method: "POST",
+          body: formData
+        }
+      )
+        .then(r => r.json())
+        .then(data => {
+          console.log(data);
+          
+          // Show success message
+          $('#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5').hide();
+          $('#modalSugerirCancion .msj-content').show().html('<p style="text-align:center; color:green; font-weight:bold;">¡Sugerencia enviada con éxito!</p>');
+          
+          // Clear form fields
+          $('#nombreSugerencia').val('');
+          $('#descripcionSugerencia').val('');
+          $('#linkSugerencia').val('');
+          
+          // Close modal after 2 seconds
+          setTimeout(function() {
+            $('#modalSugerirCancion').modal('hide');
+            // Reset modal to show form again next time
+            $('#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5').show();
+            $('#modalSugerirCancion .msj-content').hide().html('');
+          }, 2000);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Error al enviar la sugerencia. Por favor intenta de nuevo.');
+        });
+    });
+  </script>
+
+
 </body>
 
 </html>
