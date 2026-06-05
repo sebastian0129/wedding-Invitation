@@ -1,22 +1,625 @@
 {
-  "familia-garcia": {
-    "pases": 4,
-    "acompanantes": 1,
+  "rivera-buitrago": {
+    "pases": 5,
+    "acompanantes": 0,
     "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
     "invitados": [
-      "Juan García",
-      "Sofía García",
-      "Mateo García"
+      "LUZ ELENA BUITRAGO",
+      "JOSE ARISTIDES RIVERA",
+      "SERGIO ARISTIDES RIVERA",
+      "SEBASTIAN VASQUEZ",
+      "MARIA DE LOS ANGELES"
     ]
   },
-
-  "familia-rodriguez": {
+  "marleny-mejia": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MARLENY MEJIA VARGAS"
+    ]
+  },
+  "nestor-hidalgo": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "NESTOR FERNANDO HIDALGO"
+    ]
+  },
+  "nohemy": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "NOHEMY VASQUEZ MEJIA"
+    ]
+  },
+  "monica": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MONICA VASQUEZ"
+    ]
+  },
+  "caro-y-luisa": {
     "pases": 2,
     "acompanantes": 0,
-    "mensaje": "Nos encantará compartir contigo.",
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
     "invitados": [
-      "Carlos Rodríguez",
-      "Laura Rodríguez"
+      "CAROLINA VASQUEZ",
+      "LUISA FERNANDA VASQUEZ"
+    ]
+  },
+  "vasquez-villamil": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MONICA VILLAMIL",
+      "JOSE ALFONSO VASQUEZ",
+      "GABRIELA VASQUEZ MEJIA"
+    ]
+  },
+  "vasquez-alarcon": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ANGELL GERALDINE ALARCON",
+      "VICTOR HUGO VASQUEZ",
+      "MATHIAS VASQUEZ"
+    ]
+  },
+  "mauro-y-laura": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MAURICIO VASQUEZ",
+      "LAURA ANDREA TORO BETANCOURT"
+    ]
+  },
+  "toro-rivera": {
+    "pases": 4,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "OMAIRA RIVERA",
+      "GUILLERMO TORO",
+      "JUNIOR TORO",
+      "JULIANA"
+    ]
+  },
+  "alex-y-paola": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ALEXANDER TORO",
+      "PAOLA ANDREA PALACIOS SANABRIA"
+    ]
+  },
+  "laura-e-hijos": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "LAURA LILIANA TORO",
+      "SANTIAGO DUARTE",
+      "ESTEBAN DUARTE"
+    ]
+  },
+  "juli-y-nia": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ESTEFANIA RIVERA",
+      "JULIAN ANDRES MUÑOZ MONTOYA"
+    ]
+  },
+  "rivera-duque": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MARIA ALEJANDRA RIVERA",
+      "ROBERTO RIVERA",
+      "DIANA DUQUE"
+    ]
+  },
+  "ospina-rivera": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MARIA FERNANDA RIVERA",
+      "JUAN MATEO OSPINA",
+      "MARTHA CECILIA OSPINA"
+    ]
+  },
+  "claribel-rivera": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "CLARIBEL RIVERA HENAO"
+    ]
+  },
+  "rivera-arcila": {
+    "pases": 4,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "GERARDO RIVERA",
+      "GLORIA ARCILA",
+      "VALENTINA RIVERA",
+      "LINA MARIA RIVERA"
+    ]
+  },
+  "orlando-rivera": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ORLANDO RIVERA"
+    ]
+  },
+  "reyes-rivera": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "OFIR RIVERA",
+      "RUBEN DARIO REYES"
+    ]
+  },
+  "flores-buitrago": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ANA CECILIA BUITRAGO",
+      "RODRIGO FLORES"
+    ]
+  },
+  "ana-y-noiber": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ANA MARIA FLORES",
+      "NOIBER SALAZAR"
+    ]
+  },
+  "juli-y-david": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "JULIANA FLORES",
+      "DAVID AMADOR GIRALDO"
+    ]
+  },
+  "martha-e-hijos": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MARTHA ISABEL BUITRAGO",
+      "SAMANTHA GONZALEZ",
+      "JUAN MANUEL GONZALEZ"
+    ]
+  },
+  "buritica-buitrago": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "LUZ MERY BUITRAGO",
+      "NELSON DUBEL BURITICA",
+      "FARID CAMILO BURITICA"
+    ]
+  },
+  "buitrago-buritica": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ROBERTO BUITRAGO",
+      "ANA CECILIA BURITICA"
+    ]
+  },
+  "mauricio-e-hijos": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MAURICIO BUITRAGO",
+      "SEBASTIAN BUITRAGO",
+      "CRISTIAN MAURICIO BUITRAGO"
+    ]
+  },
+  "johana-castrillon": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "LEIDY JOHANA CASTRILLON"
+    ]
+  },
+  "giomar-y-monica": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "GIOMAR URIBE",
+      "MONICA SOLARTE"
+    ]
+  },
+  "rosme-y-dani": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ROSMERY",
+      "DANIELA TORO"
+    ]
+  },
+  "diego-y-juanita": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "JUANITA ARANZAZU AGUIRRE",
+      "DIEGO AVILA GOMEZ"
+    ]
+  },
+  "familia-loaiza": {
+    "pases": 5,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "JIMMY ALEJANDRO LOAIZA",
+      "MARIA FERNANDA VILLEGAS",
+      "JESSICA ALEJANDRA DUQUE",
+      "OLIVA LOAIZA JARAMILLO",
+      "AIDA LUZ LOAIZA"
+    ]
+  },
+  "santi-y-manu": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "SANTIAGO  LOAIZA",
+      "MANUELA CASTELLANOS RIVERA"
+    ]
+  },
+  "ander-y-aleja": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ANDERSON DAVILA",
+      "ALEJANDRA CASTAÑO"
+    ]
+  },
+  "rios-y-caro": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ANGIE CAROLINA INFANTE",
+      "CRISTIAN CAMILO RIOS"
+    ]
+  },
+  "deivis": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "DEIVIS GIOVANNY"
+    ]
+  },
+  "charry": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "AGUSTIN CHARRY"
+    ]
+  },
+  "sergio-y-eli": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "SERGIO POSADA URREA",
+      "ELIZABETH BETANCURTH CANDAMIL"
+    ]
+  },
+  "mateo-y-laura": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "LAURA VANESSA LOPEZ",
+      "MATEO LOPEZ"
+    ]
+  },
+  "camila-y-brayan": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "CAMILA",
+      "BRAYAN"
+    ]
+  },
+  "chaga-y-jhanet": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "JHANET JIMENEZ",
+      "LUIS GONZAGA HENAO"
+    ]
+  },
+  "luisa-y-familia": {
+    "pases": 4,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "LUISA FERNANDA HENAO",
+      "MIGUEL ANGEL BETANCOURTH",
+      "THOMAS JIMENEZ HENAO",
+      "JULIAN ANDRES BETANCOURTH"
+    ]
+  },
+  "nana-e-hija": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ADRIANA MARIA RAMIREZ",
+      "MARIA ANTONIA"
+    ]
+  },
+  "marcelo-y-familia": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ELIANA RAMIREZ",
+      "MARCELO",
+      "MARIA JOSE"
+    ]
+  },
+  "gloria-e-hijas": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "GLORIA EDITH CARDONA",
+      "LUZ EDITH RAMIREZ CARDONA",
+      "NANCY RAMIREZ CARDONA"
+    ]
+  },
+  "familia-henao-santamaria": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "SANDRA SANTAMARIA",
+      "JAVIER HENAO",
+      "LAURA HENAO SANTAMARIA"
+    ]
+  },
+  "juan-y-maria": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MARIA JOSE HENAO",
+      "JUAN DAVID VEGA"
+    ]
+  },
+  "ignacio-henao": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "IGNACIO HENAO"
+    ]
+  },
+  "ruben-henao": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "RUBEN DARIO HENAO"
+    ]
+  },
+  "joha-jimenez": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "LIZETH JOHANA JIMENEZ"
+    ]
+  },
+  "chucho-y-familia": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "JESUS MARIA HENAO",
+      "LUZ DARY",
+      "MARIA ALEJANDRA HENAO"
+    ]
+  },
+  "valen-y-camilo": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "VALENTINA GARCIA",
+      "CAMILO"
+    ]
+  },
+  "juli-y-santi": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "JULIANA CORREA",
+      "SANTIAGO ROMAN"
+    ]
+  },
+  "majo-y-kike": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MARIA JOSE MAYORGA",
+      "LUIS ENRIQUE MORA"
+    ]
+  },
+  "gio-y-familia": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "GIOVANNY ARIAS",
+      "DANIELA VILLEGAS OSPINA",
+      "ALBA OCHOA"
+    ]
+  },
+  "martin-posada": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MARTIN POSADA"
+    ]
+  },
+  "martha-henao": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MARTHA LILIANA HENAO"
+    ]
+  },
+  "gero-y-pamela": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "GERONIMO ARIAS GONZALEZ",
+      "PAMELA VILLEGAS"
+    ]
+  },
+  "mauro-y-paola": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "JHON MAURICIO CEBALLOS",
+      "PAOLA ORTIZ"
+    ]
+  },
+  "daniel-rendon": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "DANIEL VASQUEZ RENDON"
+    ]
+  },
+  "marcela-y-augusto": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MARCELA RIVERA",
+      "AUGUSTO"
+    ]
+  },
+  "marleny-y-mauro": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "MAURICIO RIVERA",
+      "MARLENY HERNANDEZ"
+    ]
+  },
+  "caliche": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "CARLOS MAURICIO (CALICHE)"
+    ]
+  },
+  "robin-y-estefa": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ROBINSON ALVARADO GIRALDO",
+      "ESTEFANIA"
+    ]
+  },
+  "aurora-y-marina": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "AURORA BUITRAGO",
+      "LUZ MARINA BUITRAGO"
+    ]
+  },
+  "sonia-y-augusto": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "SONIA",
+      "AUGUSTO"
+    ]
+  },
+  "claudia-beltran": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "CLAUDIA BELTRAN"
+    ]
+  },
+  "oscar-y-familia": {
+    "pases": 4,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "OSCAR LEON BUITRAGO",
+      "ADRIANA BURITICA",
+      "DIEGO ALEJANDRO BUITRAGO",
+      "MARIA JOSE BUITRAGO"
+    ]
+  },
+  "nan": {
+    "pases": 3,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "FOTOGRAGO",
+      "FOTOGRAFO",
+      "SANDRA EVENTO"
     ]
   }
 }
