@@ -124,27 +124,29 @@
       <div class="ll-envelope-wrap">
         <svg class="ll-envelope-svg" viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
           <!-- Sombra -->
-          <ellipse cx="130" cy="176" rx="100" ry="7" fill="rgba(0,0,0,0.10)"/>
+          <ellipse cx="130" cy="176" rx="100" ry="7" fill="rgba(0,0,0,0.10)" />
           <!-- Cuerpo del sobre -->
-          <rect x="10" y="38" width="240" height="132" rx="8" fill="#fdf6e8" stroke="#e4d0a0" stroke-width="1.5"/>
+          <rect x="10" y="38" width="240" height="132" rx="8" fill="#fdf6e8" stroke="#e4d0a0" stroke-width="1.5" />
           <!-- Pliegue inferior -->
-          <polygon points="10,170 130,104 250,170" fill="#ecdfc4"/>
+          <polygon points="10,170 130,104 250,170" fill="#ecdfc4" />
           <!-- Pliegue izquierdo -->
-          <polygon points="10,38 10,170 88,108" fill="#e8d8b8"/>
+          <polygon points="10,38 10,170 88,108" fill="#e8d8b8" />
           <!-- Pliegue derecho -->
-          <polygon points="250,38 250,170 172,108" fill="#e8d8b8"/>
+          <polygon points="250,38 250,170 172,108" fill="#e8d8b8" />
           <!-- Solapa abierta hacia arriba -->
-          <polygon points="10,38 130,115 250,38" fill="#f5e8c8" opacity="0.6"/>
-          <polygon points="10,38 130,4 250,38" fill="#f0e0b8"/>
-          <line x1="10" y1="38" x2="130" y2="4" stroke="#e4d0a0" stroke-width="1"/>
-          <line x1="250" y1="38" x2="130" y2="4" stroke="#e4d0a0" stroke-width="1"/>
+          <polygon points="10,38 130,115 250,38" fill="#f5e8c8" opacity="0.6" />
+          <polygon points="10,38 130,4 250,38" fill="#f0e0b8" />
+          <line x1="10" y1="38" x2="130" y2="4" stroke="#e4d0a0" stroke-width="1" />
+          <line x1="250" y1="38" x2="130" y2="4" stroke="#e4d0a0" stroke-width="1" />
           <!-- Carta que asoma -->
-          <rect x="48" y="54" width="164" height="100" rx="4" fill="white" opacity="0.95"/>
-          <line x1="68" y1="78"  x2="192" y2="78"  stroke="#e8e0d0" stroke-width="2" stroke-linecap="round"/>
-          <line x1="68" y1="94"  x2="192" y2="94"  stroke="#e8e0d0" stroke-width="2" stroke-linecap="round"/>
-          <line x1="68" y1="110" x2="160" y2="110" stroke="#e8e0d0" stroke-width="2" stroke-linecap="round"/>
+          <rect x="48" y="54" width="164" height="100" rx="4" fill="white" opacity="0.95" />
+          <line x1="68" y1="78" x2="192" y2="78" stroke="#e8e0d0" stroke-width="2" stroke-linecap="round" />
+          <line x1="68" y1="94" x2="192" y2="94" stroke="#e8e0d0" stroke-width="2" stroke-linecap="round" />
+          <line x1="68" y1="110" x2="160" y2="110" stroke="#e8e0d0" stroke-width="2" stroke-linecap="round" />
           <!-- Corazón sello -->
-          <path d="M130,136 C130,136 114,122 114,113 C114,107 119,104 124,108 C127,110 130,113 130,113 C130,113 133,110 136,108 C141,104 146,107 146,113 C146,122 130,136 130,136Z" fill="#C6D7CF"/>
+          <path
+            d="M130,136 C130,136 114,122 114,113 C114,107 119,104 124,108 C127,110 130,113 130,113 C130,113 133,110 136,108 C141,104 146,107 146,113 C146,122 130,136 130,136Z"
+            fill="#C6D7CF" />
         </svg>
       </div>
 
@@ -171,14 +173,21 @@
     #lluvia-overlay {
       display: none;
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 99999;
       background: rgba(4, 8, 18, 0.82);
       overflow: hidden;
       cursor: pointer;
     }
 
-    #llRain { position: absolute; inset: 0; pointer-events: none; }
+    #llRain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
 
     .ll-env {
       position: absolute;
@@ -186,28 +195,47 @@
       opacity: 0;
       animation: llFall var(--dur) var(--del) linear infinite;
     }
-    .ll-env svg { display: block; }
+
+    .ll-env svg {
+      display: block;
+    }
+
     @keyframes llFall {
-      0%   { transform: translateY(0)     rotate(var(--r0)); opacity: 0;   }
-      8%   { opacity: 0.80; }
-      88%  { opacity: 0.75; }
-      100% { transform: translateY(110vh) rotate(var(--r1)); opacity: 0;   }
+      0% {
+        transform: translateY(0) rotate(var(--r0));
+        opacity: 0;
+      }
+
+      8% {
+        opacity: 0.80;
+      }
+
+      88% {
+        opacity: 0.75;
+      }
+
+      100% {
+        transform: translateY(110vh) rotate(var(--r1));
+        opacity: 0;
+      }
     }
 
     #llCard {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -44%) scale(0.80);
       opacity: 0;
       width: min(380px, 88vw);
       background: #fffdf8;
       border-radius: 20px;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 0 1px rgba(198,215,207,0.35);
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(198, 215, 207, 0.35);
       cursor: default;
       z-index: 2;
       overflow: hidden;
-      transition: transform 0.75s cubic-bezier(0.34,1.45,0.64,1), opacity 0.45s ease;
+      transition: transform 0.75s cubic-bezier(0.34, 1.45, 0.64, 1), opacity 0.45s ease;
     }
+
     #llCard.ll-show {
       transform: translate(-50%, -50%) scale(1);
       opacity: 1;
@@ -218,18 +246,30 @@
       padding: clamp(20px, 5vw, 32px) 24px clamp(12px, 3vw, 20px);
       text-align: center;
     }
+
     .ll-envelope-svg {
       width: clamp(160px, 55vw, 230px);
       height: auto;
-      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
       animation: llFloat 3s ease-in-out infinite;
     }
+
     @keyframes llFloat {
-      0%, 100% { transform: translateY(0);    }
-      50%       { transform: translateY(-7px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-7px);
+      }
     }
 
-    .ll-card-body { padding: clamp(14px, 4vw, 22px) 24px 6px; text-align: center; }
+    .ll-card-body {
+      padding: clamp(14px, 4vw, 22px) 24px 6px;
+      text-align: center;
+    }
 
     .ll-card-title {
       font-family: 'Cookie', cursive;
@@ -238,6 +278,7 @@
       margin: 0 0 4px;
       line-height: 1;
     }
+
     .ll-card-sub {
       font-family: 'Open Sans', sans-serif;
       font-size: clamp(9px, 2.5vw, 11px);
@@ -249,11 +290,12 @@
 
     .ll-timer-bar-wrap {
       height: 3px;
-      background: rgba(0,0,0,0.06);
+      background: rgba(0, 0, 0, 0.06);
       margin: clamp(14px, 4vw, 20px) 24px 0;
       border-radius: 2px;
       overflow: hidden;
     }
+
     .ll-timer-fill {
       height: 100%;
       width: 100%;
@@ -261,7 +303,11 @@
       transform-origin: left;
     }
 
-    .ll-footer { padding: clamp(10px, 3vw, 16px) 24px clamp(16px, 4vw, 22px); text-align: center; }
+    .ll-footer {
+      padding: clamp(10px, 3vw, 16px) 24px clamp(16px, 4vw, 22px);
+      text-align: center;
+    }
+
     .ll-close-btn {
       font-family: 'Open Sans', sans-serif;
       font-size: clamp(9px, 2.5vw, 11px);
@@ -275,24 +321,36 @@
       display: inline-block;
       transition: background 0.2s, color 0.2s;
     }
-    .ll-close-btn:hover { background: #f5ede0; color: #7a6040; }
-/* --- Estilos para Lluvia de Notas --- */
-.music-rain {
+
+    .ll-close-btn:hover {
+      background: #f5ede0;
+      color: #7a6040;
+    }
+
+    /* --- Estilos para Lluvia de Notas --- */
+    .music-rain {
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 99998;
       pointer-events: none;
       overflow: hidden;
       display: none;
     }
+
     .ll-note {
       position: absolute;
       top: -50px;
       opacity: 0;
       animation: llFall var(--dur) var(--del) linear forwards;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
     }
-    .ll-note svg { display: block; }
+
+    .ll-note svg {
+      display: block;
+    }
   </style>
 
   <div id="music-rain-container" class="music-rain"></div>
@@ -330,25 +388,25 @@
         d.className = 'll-env';
         var sz = 34 + Math.random() * 48;
         d.style.width = sz + 'px';
-        d.style.left  = (Math.random() * 96) + '%';
+        d.style.left = (Math.random() * 96) + '%';
         d.style.setProperty('--dur', (3 + Math.random() * 3.5) + 's');
         d.style.setProperty('--del', (Math.random() * 2.5) + 's');
-        d.style.setProperty('--r0',  (Math.random() * 50 - 25) + 'deg');
-        d.style.setProperty('--r1',  (Math.random() * 50 - 25) + 'deg');
+        d.style.setProperty('--r0', (Math.random() * 50 - 25) + 'deg');
+        d.style.setProperty('--r1', (Math.random() * 50 - 25) + 'deg');
         d.innerHTML = _LL_SVG;
         rain.appendChild(d);
       }
 
-      ov.style.opacity    = '0';
-      ov.style.display    = 'block';
+      ov.style.opacity = '0';
+      ov.style.display = 'block';
       ov.offsetHeight;
       ov.style.transition = 'opacity 0.45s ease';
-      ov.style.opacity    = '1';
+      ov.style.opacity = '1';
 
       setTimeout(function () { card.classList.add('ll-show'); }, 300);
       setTimeout(function () {
         fill.style.transition = 'transform ' + _LL_MS + 'ms linear';
-        fill.style.transform  = 'scaleX(0)';
+        fill.style.transform = 'scaleX(0)';
       }, 560);
       _llTimer = setTimeout(lluviaClose, 560 + _LL_MS);
     }
@@ -356,18 +414,18 @@
     function lluviaClose() {
       if (!_llOpen) return;
       clearTimeout(_llTimer);
-      var ov   = document.getElementById('lluvia-overlay');
+      var ov = document.getElementById('lluvia-overlay');
       var card = document.getElementById('llCard');
       var fill = document.getElementById('llTimerFill');
       var rain = document.getElementById('llRain');
       card.classList.remove('ll-show');
       ov.style.transition = 'opacity 0.65s ease';
-      ov.style.opacity    = '0';
+      ov.style.opacity = '0';
       setTimeout(function () {
-        ov.style.display  = 'none';
+        ov.style.display = 'none';
         ov.style.transition = '';
         fill.style.transition = 'none';
-        fill.style.transform  = 'scaleX(1)';
+        fill.style.transform = 'scaleX(1)';
         rain.innerHTML = '';
         _llOpen = false;
       }, 700);
@@ -2610,6 +2668,21 @@
           </a>
         </div>
 
+        <!-- Impmrimo el bloque con la imagen -->
+        <div class="polaroid">
+          <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/7.jpg" data-fancybox="galeria">
+            <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/7.jpg" alt="">
+          </a>
+        </div>
+
+        <!-- Impmrimo el bloque con la imagen -->
+        <div class="polaroid">
+          <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/9.jpg" data-fancybox="galeria">
+            <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/9.jpg" alt="">
+          </a>
+        </div>
+
+
       </div>
 
     </div>
@@ -3715,9 +3788,22 @@
 
         </div>
 
-        <div class="modal-body">
+        <div class="modal-body" style="max-height:calc(100vh - 260px); overflow-y:auto; overflow-x:hidden;">
 
-          <p>Contenido Dress Code</p>
+          <p>Estas son algunas referencias de vestuario. Haz clic en cualquier imagen para verla a tamaño completo.</p>
+
+          <div class="d-flex flex-wrap justify-content-center align-items-center">
+            <a href="www.fixdate.io/modelo-invitacion/30/img/dressCodeMen.jpeg" data-fancybox="vestuario"
+              data-caption="Referencia 1" style="max-width:140px; margin:8px;">
+              <img src="www.fixdate.io/modelo-invitacion/30/img/dressCodeMen.jpeg" alt="Referencia vestuario 1"
+                style="width:100%; height:auto; border-radius:12px; display:block;" />
+            </a>
+            <a href="www.fixdate.io/modelo-invitacion/30/img/dressCodeWomen.jpeg" data-fancybox="vestuario"
+              data-caption="Referencia 2" style="max-width:140px; margin:8px;">
+              <img src="www.fixdate.io/modelo-invitacion/30/img/dressCodeWomen.jpeg" alt="Referencia vestuario 2"
+                style="width:100%; height:auto; border-radius:12px; display:block;" />
+            </a>
+          </div>
 
         </div>
 
@@ -3746,25 +3832,27 @@
           </div>
 
         </div>
+        <div class="modal-body" style="max-height:calc(70vh - 260px); overflow-y:auto; overflow-x:hidden;">
 
-
-
-        <div class="modal-header">
-
-          <h5 class="modal-title">Tips y Notas</h5>
-
-        </div>
-
-        <div class="modal-body">
-
-          <p>Para vivir este día de la mejor manera
-
-            Queremos que todos disfruten cada momento con nosotros, por eso les pedimos tener en cuenta lo siguiente:
-
-            Ceremonia sin celulares
-            Durante la ceremonia religiosa, especialmente en la iglesia, les pedimos con mucho cariño evitar tomar fotos
-            o videos. Tendremos un fotógrafo encargado de capturar cada instante de la mejor manera, y después
-            compartiremos con ustedes los recuerdos de este día tan especial.</p>
+          <div
+            style="background:transparent;  color:#4a4a42; font-family:Georgia,serif; line-height:1.8; box-shadow:0 12px 28px rgba(0,0,0,0.06);">
+            <p style="margin-bottom:1rem; font-size:1rem;">
+              Queridos invitados,
+            </p>
+            <p style="margin-bottom:1rem; font-size:1rem;">
+              Para que este día sea inolvidable y todos podamos disfrutar cada momento con tranquilidad, les pedimos
+              seguir una pequeña guía de cortesía.
+            </p>
+            <p style="margin-bottom:0.75rem; font-size:1rem;"><strong>Ceremonia sin celulares:</strong></p>
+            <p style="margin-bottom:0.5rem; font-size:0.95rem; color:#6d635a;">
+              Durante la ceremonia religiosa, especialmente en la iglesia, les invitamos a dejar los dispositivos
+              guardados. Nuestro fotógrafo estará presente para capturar los instantes más hermosos y luego
+              compartiremos con ustedes las memorias de este día.
+            </p>
+            <p style="margin-top:1.5rem; font-size:0.95rem; color:#7b6f65; font-style:italic;">
+              Gracias por acompañarnos con afecto y por ayudarnos a vivir una celebración llena de presencia y belleza.
+            </p>
+          </div>
 
         </div>
 
@@ -4448,6 +4536,41 @@
       }
       ]
     });
+
+    $('body').on('click', 'a[data-fancybox="galeria"]', function (e) {
+      e.preventDefault();
+
+      var clickedSrc = $(this).attr('href');
+      var basePath = 'www.fixdate.io/modelo-invitacion/30/img/galeria/';
+      var gallery = [];
+
+      for (var i = 1; i <= 12; i++) {
+        var filename = i + '.jpg';
+        var src = basePath + filename;
+        gallery.push({
+          src: src,
+          opts: {
+            caption: 'Foto ' + i
+          }
+        });
+      }
+
+      var startIndex = 0;
+      for (var j = 0; j < gallery.length; j++) {
+        if (gallery[j].src === clickedSrc) {
+          startIndex = j;
+          break;
+        }
+      }
+
+      $.fancybox.open(gallery, {
+        loop: false,
+        buttons: ['slideShow', 'fullScreen', 'thumbs', 'close', 'scrollbar'],
+        thumbs: {
+          autoStart: true
+        }
+      }, startIndex);
+    });
   </script>
 
 
@@ -4681,7 +4804,7 @@
       _doingMusicRain = true;
       var container = document.getElementById('music-rain-container');
       if (!container) return;
-      
+
       container.innerHTML = '';
       container.style.display = 'block';
 
@@ -4723,21 +4846,21 @@
     });
 
 
- /* ---------------------------------------------------
-       LLUVIA DE VESTUARIO (DRESS CODE) - VESTIDOS Y SMOKING
-    --------------------------------------------------- */
-    
+    /* ---------------------------------------------------
+          LLUVIA DE VESTUARIO (DRESS CODE) - VESTIDOS Y SMOKING
+       --------------------------------------------------- */
+
     var _LL_DRESS_SVGS = [
       // Vestido elegante
       '<svg viewBox="0 0 24 24" fill="#C6D7CF"><path d="M11 2h2v1.5c2.2.3 4 2.1 4 4.5V10h-1l1 12H7l1-12H7V8c0-2.4 1.8-4.2 4-4.5V2zm1 2.5c-1.9 0-3.5 1.5-3.5 3.5h7c0-2-1.6-3.5-3.5-3.5zM9 10l-1 10.5h8L15 10H9z"/></svg>',
-      
+
       // Smoking / Traje
       '<svg viewBox="0 0 24 24" fill="#e8d8b8"><path d="M12 3c-.5 0-1 .2-1.4.6L5.6 8.6c-.4.4-.6.9-.6 1.4L6.5 21h11l1.5-11c0-.5-.2-1-.6-1.4L13.4 3.6c-.4-.4-.9-.6-1.4-.6zm0 2l3 3H9l3-3zm0 6l2.5 2-2.5 6-2.5-6 2.5-2z"/></svg>',
-      
+
       // Corbata
       '<svg viewBox="0 0 24 24" fill="#8fb8a8"><path d="M6 2h12v4l-4 4v10l-2 2-2-2V10L6 6V2zm2 2v1.5l3.5 3.5v9.5l.5.5.5-.5V9L16 5.5V4H8z"/></svg>'
     ];
-    
+
     var _doingDressRain = false;
 
     function lluviaVestuario() {
@@ -4745,20 +4868,20 @@
       _doingDressRain = true;
       var container = document.getElementById('dress-rain-container');
       if (!container) return;
-      
+
       container.innerHTML = '';
       container.style.display = 'block';
 
       for (var i = 0; i < 25; i++) {
         var item = document.createElement('div');
-        item.className = 'll-note'; 
-        var size = 25 + Math.random() * 30; 
+        item.className = 'll-note';
+        var size = 25 + Math.random() * 30;
         item.style.width = size + 'px';
         item.style.left = (Math.random() * 100) + '%';
-        item.style.setProperty('--dur', (3 + Math.random() * 3) + 's'); 
+        item.style.setProperty('--dur', (3 + Math.random() * 3) + 's');
         item.style.setProperty('--del', (Math.random() * 1.5) + 's');
-        item.style.setProperty('--r0', (Math.random() * 30 - 15) + 'deg'); 
-        item.style.setProperty('--r1', (Math.random() * 60 - 30) + 'deg'); 
+        item.style.setProperty('--r0', (Math.random() * 30 - 15) + 'deg');
+        item.style.setProperty('--r1', (Math.random() * 60 - 30) + 'deg');
         item.innerHTML = _LL_DRESS_SVGS[Math.floor(Math.random() * _LL_DRESS_SVGS.length)];
         container.appendChild(item);
       }
@@ -4777,21 +4900,21 @@
     /* ---------------------------------------------------
        LLUVIA DE TIPS Y NOTAS (+ INFO)
     --------------------------------------------------- */
-    
+
     // Iconos: Foco/Idea, Nota/Papel y Avión de papel
     var _LL_TIPS_SVGS = [
       // Foco / Idea (Color beige clarito)
       '<svg viewBox="0 0 24 24" fill="#e8d8b8"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>',
-      
+
       // Nota / Documento (Color verde agua)
       '<svg viewBox="0 0 24 24" fill="#C6D7CF"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>',
-      
+
       // Avión de papel (Color verde un poco más oscuro)
       '<svg viewBox="0 0 24 24" fill="#8fb8a8"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>',
       // camaras
       '<svg viewBox="0 0 24 24" fill="#8fb8a8"><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3z"/></svg>'
     ];
-    
+
     var _doingTipsRain = false;
 
     function lluviaTips() {
@@ -4799,20 +4922,20 @@
       _doingTipsRain = true;
       var container = document.getElementById('tips-rain-container');
       if (!container) return;
-      
+
       container.innerHTML = '';
       container.style.display = 'block';
 
       for (var i = 0; i < 30; i++) {
         var item = document.createElement('div');
-        item.className = 'll-note'; 
-        var size = 20 + Math.random() * 20; 
+        item.className = 'll-note';
+        var size = 20 + Math.random() * 20;
         item.style.width = size + 'px';
         item.style.left = (Math.random() * 100) + '%';
-        item.style.setProperty('--dur', (2.5 + Math.random() * 3) + 's'); 
+        item.style.setProperty('--dur', (2.5 + Math.random() * 3) + 's');
         item.style.setProperty('--del', (Math.random() * 1.5) + 's');
-        item.style.setProperty('--r0', (Math.random() * 90 - 45) + 'deg'); 
-        item.style.setProperty('--r1', (Math.random() * 180 - 90) + 'deg'); 
+        item.style.setProperty('--r0', (Math.random() * 90 - 45) + 'deg');
+        item.style.setProperty('--r1', (Math.random() * 180 - 90) + 'deg');
         item.innerHTML = _LL_TIPS_SVGS[Math.floor(Math.random() * _LL_TIPS_SVGS.length)];
         container.appendChild(item);
       }
@@ -4832,22 +4955,22 @@
     /* ---------------------------------------------------
        LLUVIA DE CONFIRMACIÓN DE ASISTENCIA
     --------------------------------------------------- */
-    
+
     // Iconos: Corazón, Calendario y Chulos/Checks de Confirmación
     var _LL_CONFIRM_SVGS = [
       // Corazón (Verde un poco más oscuro)
       '<svg viewBox="0 0 24 24" fill="#8fb8a8"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>',
-      
+
       // Calendario con corazón (Beige clarito)
       '<svg viewBox="0 0 24 24" fill="#e8d8b8"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-7-2c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/></svg>',
-      
+
       // Check / Marca de asistencia (Verde agua)
       '<svg viewBox="0 0 24 24" fill="#C6D7CF"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>',
 
       // Copas brindando
       '<svg viewBox="0 0 24 24" fill="#e8d8b8"><path d="M7.5 7l-2-2h13l-2 2h-9zM21 3H3v2l4 4v9H4v2h16v-2h-3V9l4-4V3zM10 9h4v9h-4V9z"/></svg>'
     ];
-    
+
     var _doingConfirmRain = false;
 
     function lluviaConfirmacion() {
@@ -4855,20 +4978,20 @@
       _doingConfirmRain = true;
       var container = document.getElementById('confirm-rain-container');
       if (!container) return;
-      
+
       container.innerHTML = '';
       container.style.display = 'block';
 
       for (var i = 0; i < 40; i++) {
         var item = document.createElement('div');
-        item.className = 'll-note'; 
-        var size = 20 + Math.random() * 30; 
+        item.className = 'll-note';
+        var size = 20 + Math.random() * 30;
         item.style.width = size + 'px';
         item.style.left = (Math.random() * 100) + '%';
-        item.style.setProperty('--dur', (2.5 + Math.random() * 3.5) + 's'); 
+        item.style.setProperty('--dur', (2.5 + Math.random() * 3.5) + 's');
         item.style.setProperty('--del', (Math.random() * 1.5) + 's');
-        item.style.setProperty('--r0', (Math.random() * 90 - 45) + 'deg'); 
-        item.style.setProperty('--r1', (Math.random() * 180 - 90) + 'deg'); 
+        item.style.setProperty('--r0', (Math.random() * 90 - 45) + 'deg');
+        item.style.setProperty('--r1', (Math.random() * 180 - 90) + 'deg');
         item.innerHTML = _LL_CONFIRM_SVGS[Math.floor(Math.random() * _LL_CONFIRM_SVGS.length)];
         container.appendChild(item);
       }
@@ -4882,28 +5005,28 @@
 
     $('body').on('click', 'a.confirmar-asistencia', function (e) {
       lluviaConfirmacion();
-      
+
     });
 
     /* ---------------------------------------------------
        LLUVIA DE UBICACIÓN (¿CÓMO LLEGAR?)
     --------------------------------------------------- */
-    
+
     // Iconos: Pin de mapa, Mapa, Flecha de navegación y Carrito
     var _LL_LOCATION_SVGS = [
       // Pin de ubicación (Color verde agua)
       '<svg viewBox="0 0 24 24" fill="#C6D7CF"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>',
-      
+
       // Mapa (Color beige clarito)
       '<svg viewBox="0 0 24 24" fill="#e8d8b8"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>',
-      
+
       // Flecha de navegación (Color verde más oscuro)
       '<svg viewBox="0 0 24 24" fill="#8fb8a8"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>',
 
       // Carrito (Color verde más oscuro)
       '<svg viewBox="0 0 24 24" fill="#8fb8a8"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>'
     ];
-    
+
     var _doingLocationRain = false;
 
     function lluviaUbicacion() {
@@ -4911,20 +5034,20 @@
       _doingLocationRain = true;
       var container = document.getElementById('location-rain-container');
       if (!container) return;
-      
+
       container.innerHTML = '';
       container.style.display = 'block';
 
       for (var i = 0; i < 30; i++) {
         var item = document.createElement('div');
-        item.className = 'll-note'; 
-        var size = 20 + Math.random() * 25; 
+        item.className = 'll-note';
+        var size = 20 + Math.random() * 25;
         item.style.width = size + 'px';
         item.style.left = (Math.random() * 100) + '%';
-        item.style.setProperty('--dur', (2.5 + Math.random() * 3) + 's'); 
+        item.style.setProperty('--dur', (2.5 + Math.random() * 3) + 's');
         item.style.setProperty('--del', (Math.random() * 1.5) + 's');
-        item.style.setProperty('--r0', (Math.random() * 60 - 30) + 'deg'); 
-        item.style.setProperty('--r1', (Math.random() * 120 - 60) + 'deg'); 
+        item.style.setProperty('--r0', (Math.random() * 60 - 30) + 'deg');
+        item.style.setProperty('--r1', (Math.random() * 120 - 60) + 'deg');
         item.innerHTML = _LL_LOCATION_SVGS[Math.floor(Math.random() * _LL_LOCATION_SVGS.length)];
         container.appendChild(item);
       }
@@ -4939,28 +5062,28 @@
     // Disparar la animación al hacer clic en cualquier botón de "¿Cómo llegar?"
     $('body').on('click', 'a.modal-como-llegar', function (e) {
       lluviaUbicacion();
-      
+
     });
 
     /* ---------------------------------------------------
        LLUVIA DE AGENDAR (CALENDARIOS Y RELOJES)
     --------------------------------------------------- */
-    
+
     // Iconos: Calendario marcado, Reloj de pared, Campanita y Reloj de arena
     var _LL_AGENDA_SVGS = [
       // Calendario marcado (Beige clarito)
       '<svg viewBox="0 0 24 24" fill="#e8d8b8"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>',
-      
+
       // Reloj (Verde agua)
       '<svg viewBox="0 0 24 24" fill="#C6D7CF"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>',
-      
+
       // Campanita de recordatorio (Verde más oscuro)
       '<svg viewBox="0 0 24 24" fill="#8fb8a8"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>',
 
       // Reloj de arena (Verde más oscuro)
       '<svg viewBox="0 0 24 24" fill="#8fb8a8"><path d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6zm10 14.5V20H8v-3.5l4-4 4 4zm-4-5l-4-4V4h8v3.5l-4 4z"/></svg>'
     ];
-    
+
     var _doingAgendaRain = false;
 
     function lluviaAgenda() {
@@ -4968,20 +5091,20 @@
       _doingAgendaRain = true;
       var container = document.getElementById('agenda-rain-container');
       if (!container) return;
-      
+
       container.innerHTML = '';
       container.style.display = 'block';
 
       for (var i = 0; i < 30; i++) {
         var item = document.createElement('div');
-        item.className = 'll-note'; 
-        var size = 20 + Math.random() * 25; 
+        item.className = 'll-note';
+        var size = 20 + Math.random() * 25;
         item.style.width = size + 'px';
         item.style.left = (Math.random() * 100) + '%';
-        item.style.setProperty('--dur', (2.5 + Math.random() * 3) + 's'); 
+        item.style.setProperty('--dur', (2.5 + Math.random() * 3) + 's');
         item.style.setProperty('--del', (Math.random() * 1.5) + 's');
-        item.style.setProperty('--r0', (Math.random() * 60 - 30) + 'deg'); 
-        item.style.setProperty('--r1', (Math.random() * 120 - 60) + 'deg'); 
+        item.style.setProperty('--r0', (Math.random() * 60 - 30) + 'deg');
+        item.style.setProperty('--r1', (Math.random() * 120 - 60) + 'deg');
         item.innerHTML = _LL_AGENDA_SVGS[Math.floor(Math.random() * _LL_AGENDA_SVGS.length)];
         container.appendChild(item);
       }
@@ -4993,10 +5116,10 @@
       }, 6000);
     }
 
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.addeventatc')) {
-            lluviaAgenda();
-        }
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('.addeventatc')) {
+        lluviaAgenda();
+      }
     }, true);
   </script>
 
