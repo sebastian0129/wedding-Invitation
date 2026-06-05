@@ -1081,8 +1081,8 @@
         }
 
         mostrarExito(result) {
-            const titulo = this.getOverrideTexto('titulo_exito') || this.getTexto(this.config.textos?.tituloExito) || this.getMensaje('titulo_exito');
-            const mensaje = this.getOverrideTexto('mensaje_exito') || this.getTexto(this.config.textos?.mensajeExito) || result.message || this.getMensaje('mensaje_exito');
+            const titulo = this.getOverrideTexto('Respuesta Enviada') || this.getTexto(this.config.textos?.tituloExito) || this.getMensaje('Respuesta Enviada');
+            const mensaje = this.getOverrideTexto('Muchas gracias !!') || this.getTexto(this.config.textos?.mensajeExito) || result.message || this.getMensaje('Muchas gracias !!');
             
             this.container.innerHTML = `
                 <div class="form-flex-container">

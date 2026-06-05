@@ -351,6 +351,12 @@
     .ll-note svg {
       display: block;
     }
+
+    @media (max-width: 600px) {
+      .parallax-mirror {
+        left: -400px !important;
+      }
+    }
   </style>
 
   <div id="music-rain-container" class="music-rain"></div>
@@ -3674,7 +3680,6 @@
                   demoMode: false,
                   onSuccess: function (result) {
                     console.log("RSVP enviado", result);
-                    alert("¡Gracias por confirmar!");
                   },
                   onError: function (error) {
                     console.error(error);
@@ -4544,7 +4549,7 @@
       var basePath = 'www.fixdate.io/modelo-invitacion/30/img/galeria/';
       var gallery = [];
 
-      for (var i = 1; i <= 12; i++) {
+      for (var i = 1; i <= 14; i++) {
         var filename = i + '.jpg';
         var src = basePath + filename;
         gallery.push({
@@ -4565,7 +4570,7 @@
 
       $.fancybox.open(gallery, {
         loop: false,
-        buttons: ['slideShow', 'fullScreen', 'thumbs', 'close', 'scrollbar'],
+        buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
         thumbs: {
           autoStart: true
         }
