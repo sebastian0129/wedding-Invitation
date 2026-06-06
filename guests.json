@@ -613,7 +613,7 @@
     ]
   },
 
-  "SEGURO-CORTES": {
+  "seguro-cortes": {
     "pases": 2,
     "acompanantes": 0,
     "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
@@ -623,7 +623,7 @@
     ]
   },
 
-  "EMMA-FERNANDO": {
+  "emma-fernando": {
     "pases": 2,
     "acompanantes": 0,
     "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
