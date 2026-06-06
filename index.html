@@ -12,6 +12,24 @@
 
   <meta name="color-scheme" content="light only">
 
+  <style>
+    /* Portada: en móvil el texto largo desbordaba sobre la cuenta regresiva */
+    @media only screen and (max-width: 767px) {
+      section.portada {
+        padding-bottom: 0 !important;
+        padding-top: 60px;
+      }
+      /* row tiene height:100vh en style.css → en móvil con texto largo hace overflow */
+      section.portada .container .row:first-child {
+        height: auto !important;
+        min-height: 100vh;
+      }
+      section.portada .content-portada {
+        padding-bottom: 80px;
+      }
+    }
+  </style>
+
   <title>Boda de Maria y Sebas</title>
 
 
@@ -112,9 +130,239 @@
       display: none !important;
     }
   </style>
+
 </head>
 
 <body>
+  <!-- ── Dark mode toggle ── -->
+  <button id="dark-toggle" title="Cambiar modo">
+    <svg id="dark-icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg id="dark-icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+      <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.8"/>
+      <line x1="12" y1="2"  x2="12" y2="4"  stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="12" y1="20" x2="12" y2="22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="4.22" y1="4.22"   x2="5.64" y2="5.64"   stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="2"  y1="12" x2="4"  y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="20" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"   stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"   stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <style id="dark-mode-styles">
+    /* ── Toggle: siempre visible ── */
+    #dark-toggle {
+      position: fixed;
+      top: 16px; left: 16px;
+      z-index: 99998;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(122,174,158,0.55);
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(6px);
+      cursor: pointer; padding: 8px;
+      color: #274E50;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+    #dark-toggle:hover { background: #274E50; color: #C6D7CF; border-color: #274E50; }
+    #dark-toggle svg   { width: 100%; height: 100%; display: block; }
+    @media (max-width: 767px) {
+      #dark-toggle {
+        top: 12px;
+        left: 12px;
+        width: 38px;
+        height: 38px;
+        padding: 7px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.22);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       DARK MODE
+       Paleta derivada de --color-1: #274E50 (verde oscuro)
+       Fondos: dark teal-black  |  Textos: teal medio
+    ═══════════════════════════════════════════════════ */
+
+    /* ── 1. Variables CSS: fondos claros → oscuros ── */
+    body.dark-mode {
+      --color-3: #1b3e42;   /* light mint  → dark teal */
+      --color-4: #141e1f;   /* cream       → dark teal-black */
+      --color-5: #141e1f;   /* mismo valor que color-4: evita bandas de color */
+      --color-6: #8a9e9e;   /* gray text   → muted teal-gray */
+      background-color: #141e1f !important;
+      color-scheme: dark;
+    }
+
+    /* Toggle en dark */
+    body.dark-mode #dark-toggle {
+      background: rgba(15,26,27,0.92);
+      color: #7ab5b8;
+      border-color: rgba(122,181,184,0.4);
+    }
+    body.dark-mode #dark-toggle:hover { background: #274E50; color: #C6D7CF; }
+
+    /* ── 2. Imágenes: nunca tocar ── */
+    body.dark-mode img { filter: none !important; }
+
+    /* ── 3. Ondas SVG: filtro oscuro en dark mode ── */
+    body.dark-mode section.portada::after          { filter: brightness(0.22) !important; }
+    body.dark-mode section.ceremonia-fiesta::after { filter: brightness(0.22) !important; }
+    body.dark-mode section.fiesta::after           { filter: brightness(0.22) !important; }
+    /* Las olas de instagram dan tono café al filtrarse → se ocultan */
+    body.dark-mode section.instagram::before,
+    body.dark-mode section.instagram::after        { display: none !important; }
+
+    /* ── Sección instagram en dark: fondo oscuro, texto blanco ── */
+    body.dark-mode section.instagram .title,
+    body.dark-mode section.instagram .subtitle,
+    body.dark-mode section.instagram .hashtag { color: #fff !important; }
+
+    /* ── 4. Círculos blancos hardcodeados ── */
+    body.dark-mode section.cuenta-regresiva .box-aros .box-circulo,
+    body.dark-mode section.ceremonia-fiesta .anim-anillos,
+    body.dark-mode section.ceremonia-fiesta .anim-fiesta,
+    /* Animaciones de fiesta: mismo color que la card (--color-4 = #141e1f)
+       para que no se vean como cuadro/círculo flotante */
+    body.dark-mode section.fiesta .anim-musica,
+    body.dark-mode section.fiesta .anim-vestuario,
+    body.dark-mode section.fiesta .anim-tips {
+      background-color: var(--color-4) !important;
+      box-shadow: none !important;
+    }
+    body.dark-mode .white-circle-icon {
+      background-color: #1b3436 !important;
+      box-shadow: 0 0 18px -2px rgba(0,0,0,0.55) !important;
+    }
+
+    /* ── 5. Textos: teal medio en vez de blanco ── */
+    body.dark-mode .title    { color: #5b9a9e !important; }  /* derivado de #274E50 aclarado */
+    body.dark-mode .subtitle { color: #3f7478 !important; }
+
+    /* h3 en ceremonía (sobre fondo color-2 teal → texto blanco ok) */
+    body.dark-mode section.ceremonia-fiesta .col-ceremonia h3,
+    body.dark-mode section.ceremonia-fiesta .col-fiesta h3 { color: #e8f0f0 !important; }
+
+    /* Countdown */
+    body.dark-mode section.cuenta-regresiva .box-aros .box-circulo span.falta { color: #c9963a !important; }
+    body.dark-mode section.cuenta-regresiva .reloj-col { border-right-color: #1e3a3c !important; }
+
+    /* Card de invitados */
+    body.dark-mode .bloque-grupo-invitados .pases-total { color: #d0e8e8 !important; }
+    body.dark-mode .bloque-grupo-invitados .titulo-grupo,
+    body.dark-mode .bloque-grupo-invitados h3    { color: #5b9a9e !important; }
+    body.dark-mode .bloque-grupo-invitados .invitado-item { color: #c8dede !important; background: rgba(91,154,158,0.10) !important; }
+    body.dark-mode .bloque-grupo-invitados .acompanantes-info { color: #7ab8bc !important; }
+    body.dark-mode .bloque-grupo-invitados .mensaje-grupo { color: #8aadad !important; }
+    body.dark-mode .bloque-grupo-invitados p,
+    body.dark-mode .bloque-grupo-invitados span:not(.pases-total) { color: #8aadad !important; }
+
+    /* Cards de fiesta */
+    body.dark-mode .content-item-fiesta h3  { color: #5b9a9e !important; }
+    body.dark-mode .content-item-fiesta p,
+    body.dark-mode .content-item-fiesta span { color: #7a9e9e !important; }
+
+    /* ── 6. Polaroids ── */
+    body.dark-mode .polaroid,
+    body.dark-mode section.galeria .slick-center .polaroid { background-color: #1b2e30 !important; }
+
+    /* ── 7. Botones: fondo teal oscuro visible ── */
+    body.dark-mode .boton {
+      background: #1b3436 !important;
+      border-color: #2e5458 !important;
+      color: #7ab5b8 !important;
+    }
+    body.dark-mode .boton:hover {
+      background: #274E50 !important;
+      border-color: #3d7478 !important;
+      color: #c6e8e8 !important;
+    }
+
+    /* ── 8. Modales ── */
+    body.dark-mode .modal-content  {
+      background-color: #162224 !important;
+      background-image: none !important; /* elimina img_modal01.svg en desktop */
+      color: #8aadad !important;
+    }
+    body.dark-mode .modal-header   { background-color: #1b2e30 !important; border-color: #1e3a3c !important; }
+    body.dark-mode .modal-body     { background-color: #162224 !important; color: #8aadad !important; }
+    body.dark-mode .modal-footer   { background-color: #162224 !important; border-color: #1e3a3c !important; }
+    body.dark-mode .modal-title    { color: #5b9a9e !important; }
+    body.dark-mode .modal-body p,
+    body.dark-mode .modal-body span,
+    body.dark-mode .modal-body h3,
+    body.dark-mode .modal-body label { color: #8aadad !important; }
+    body.dark-mode .close           { background-color: #1b3e42 !important; color: #c6e8e8 !important; opacity: 1 !important; border: 1.5px solid #2e5458 !important; }
+    body.dark-mode .close:hover     { background-color: #274E50 !important; color: #fff !important; }
+
+    /* ── 9. Inputs ── */
+    body.dark-mode input.form-control,
+    body.dark-mode textarea.form-control {
+      background: #1b3436 !important;
+      color: #8aadad !important;
+      border-color: #2e5458 !important;
+    }
+    body.dark-mode input.form-control::placeholder,
+    body.dark-mode textarea.form-control::placeholder { color: #3f6468 !important; }
+    body.dark-mode .modal-dialog form input,
+    body.dark-mode .modal-dialog form textarea {
+      color: #8aadad !important;
+      border-bottom-color: #2e5458 !important;
+    }
+
+    /* Modal asistencia: form-flex */
+    body.dark-mode #modalAsistencia .modal-content-2 { background: #162224 !important; }
+    body.dark-mode #modalAsistencia .form-flex-input,
+    body.dark-mode #modalAsistencia .form-flex-textarea,
+    body.dark-mode #modalAsistencia .form-flex-select {
+      background-color: #1b3436 !important;
+      color: #8aadad !important;
+      border-color: #2e5458 !important;
+    }
+    body.dark-mode #modalAsistencia .form-flex-input::placeholder,
+    body.dark-mode #modalAsistencia .form-flex-textarea::placeholder { color: #3f6468 !important; }
+    body.dark-mode #modalAsistencia .form-flex-select option { background: #1b3436 !important; color: #8aadad !important; }
+    body.dark-mode #modalAsistencia .form-flex-label,
+    body.dark-mode #modalAsistencia .form-flex-label i  { color: #5b9a9e !important; }
+    body.dark-mode #modalAsistencia .form-flex-exito-titulo  { color: #5b9a9e !important; }
+    body.dark-mode #modalAsistencia .form-flex-exito-mensaje { color: #7a9e9e !important; }
+    body.dark-mode #modalAsistencia .form-flex-titulo        { color: #8aadad !important; }
+    body.dark-mode #modalAsistencia .form-flex-loading-overlay { background: rgba(15,26,27,0.9) !important; }
+
+    /* ── 10. Carrusel sombras ── */
+    body.dark-mode .shadow-left  { background: linear-gradient(to right, #0f1a1b, transparent) !important; }
+    body.dark-mode .shadow-right { background: linear-gradient(to left,  #0f1a1b, transparent) !important; }
+    body.dark-mode .slick-arrow-custom { color: #5b9a9e; }
+
+    /* ── 11. Scrollbar ── */
+    body.dark-mode ::-webkit-scrollbar-track { background: #131e1f !important; }
+  </style>
+
+  <script>
+    (function () {
+      var btn  = document.getElementById('dark-toggle');
+      var moon = document.getElementById('dark-icon-moon');
+      var sun  = document.getElementById('dark-icon-sun');
+
+      function applyMode(dark) {
+        document.body.classList.toggle('dark-mode', dark);
+        moon.style.display = dark ? 'none'  : 'block';
+        sun.style.display  = dark ? 'block' : 'none';
+        localStorage.setItem('weddingDarkMode', dark ? '1' : '0');
+      }
+
+      /* Restaurar preferencia guardada */
+      applyMode(localStorage.getItem('weddingDarkMode') === '1');
+
+      btn.addEventListener('click', function () {
+        applyMode(!document.body.classList.contains('dark-mode'));
+      });
+    })();
+  </script>
+
   <!-- LLUVIA OVERLAY -->
   <div id="lluvia-overlay">
     <div id="llRain"></div>
@@ -326,6 +574,100 @@
       background: #f5ede0;
       color: #7a6040;
     }
+    @keyframes spinnerRot { to { transform: rotate(360deg); } }
+
+    /* ── Flechas carrusel galería ── */
+    .slick-arrow-custom {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: none;
+      border: none;
+      padding: 0;
+      width: 28px;
+      height: 28px;
+      color: #C6D7CF;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    /* ── Carrusel: Ocultar flecha por defecto de slick ── */
+    .slick-prev:before,
+    .slick-next:before {
+        display: none !important;
+    }
+    .slick-arrow-custom svg { width: 100%; height: 100%; display: block; }
+    .slick-arrow-custom:hover { color: #5a7a6a; }
+    .slick-prev.slick-arrow-custom { left: 2px; }
+    .slick-next.slick-arrow-custom { right: 2px; }
+
+    /* ── Galería: imágenes redimensionadas proporcionalmente ── */
+    .carrusel .polaroid { padding: 4px; }
+    .carrusel .polaroid img {
+      width: 100%;
+      height: auto;
+      max-height: 280px;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .carrusel .polaroid img { max-height: 200px; }
+    }
+    @media (max-width: 480px) {
+      .carrusel .polaroid img { max-height: 160px; }
+    }
+
+    /* ── Spinner envío canción ── */
+    .ll-sending-wrap {
+      text-align: center;
+      padding: 28px 0 22px;
+      animation: llSendFadeIn 0.4s ease forwards;
+    }
+    @keyframes llSendFadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+    .ll-ring-outer {
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #C6D7CF 0%, #7aae9e 60%, transparent 60%);
+      animation: spinnerRot 1s linear infinite;
+      margin: 0 auto 18px;
+      position: relative;
+    }
+    .ll-ring-inner {
+      position: absolute;
+      inset: 7px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .ll-sending-dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+    .ll-sending-dots span {
+      display: block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #C6D7CF;
+      animation: llDotBounce 1.2s ease-in-out infinite;
+    }
+    .ll-sending-dots span:nth-child(2) { animation-delay: 0.18s; background: #9fc8bc; }
+    .ll-sending-dots span:nth-child(3) { animation-delay: 0.36s; background: #7aae9e; }
+    @keyframes llDotBounce {
+      0%, 80%, 100% { transform: scale(0.55); opacity: 0.4; }
+      40%           { transform: scale(1);    opacity: 1;   }
+    }
+
+    .ll-sending-text {
+      font-family: 'Cookie', cursive;
+      font-size: 22px;
+      color: #5a7a6a;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
 
     /* --- Estilos para Lluvia de Notas --- */
     .music-rain {
@@ -444,7 +786,7 @@
   </script>
   <div class="parallax-mirror"
     style="visibility: visible; z-index: -100; position: fixed; top: 0px; left: 0px; overflow: hidden; transform: translate3d(0px, 0px, 0px); height: 1464px; width: 1920px;">
-    <img class="parallax-slider" src="www.fixdate.io/modelo-invitacion/30/img/portada-3.JPG"
+    <img class="parallax-slider" src="www.fixdate.io/modelo-invitacion/30/img/portada-3.jpg"
       style="transform: translate3d(-67px, 0px, 0px); position: absolute; width: 100%; max-width: none;">
   </div>
   <div class="parallax-mirror"
@@ -2646,45 +2988,59 @@
 
       <div class="carrusel">
 
-        <!-- Impmrimo el bloque con la imagen -->
         <div class="polaroid">
           <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/1.jpg" data-fancybox="galeria">
             <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/1.jpg" alt="">
           </a>
         </div>
-
-        <!-- Impmrimo el bloque con la imagen -->
         <div class="polaroid">
           <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/2.jpg" data-fancybox="galeria">
             <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/2.jpg" alt="">
           </a>
         </div>
-
-        <!-- Impmrimo el bloque con la imagen -->
         <div class="polaroid">
           <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/3.jpg" data-fancybox="galeria">
             <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/3.jpg" alt="">
           </a>
         </div>
-
-        <!-- Impmrimo el bloque con la imagen -->
         <div class="polaroid">
           <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/4.jpg" data-fancybox="galeria">
             <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/4.jpg" alt="">
           </a>
         </div>
-
-        <!-- Impmrimo el bloque con la imagen -->
+        <div class="polaroid">
+          <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/5.jpg" data-fancybox="galeria">
+            <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/5.jpg" alt="">
+          </a>
+        </div>
+        <div class="polaroid">
+          <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/6.jpg" data-fancybox="galeria">
+            <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/6.jpg" alt="">
+          </a>
+        </div>
         <div class="polaroid">
           <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/7.jpg" data-fancybox="galeria">
             <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/7.jpg" alt="">
           </a>
         </div>
-
-        <!-- Impmrimo el bloque con la imagen -->
+        <div class="polaroid">
+          <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/8.jpg" data-fancybox="galeria">
+            <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/8.jpg" alt="">
+          </a>
+        </div>
         <div class="polaroid">
           <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/9.jpg" data-fancybox="galeria">
             <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/9.jpg" alt="">
+          </a>
+        </div>
+        <div class="polaroid">
+          <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/10.jpg" data-fancybox="galeria">
+            <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/10.jpg" alt="">
+          </a>
+        </div>
+        <div class="polaroid">
+          <a href="www.fixdate.io/modelo-invitacion/30/img/galeria/11.jpg" data-fancybox="galeria">
+            <img src="www.fixdate.io/modelo-invitacion/30/img/galeria/11.jpg" alt="">
           </a>
         </div>
 
@@ -3679,17 +4035,18 @@
             <form id="formSugerirCancion" action="">
 
               <div class="form-group">
-                <input type="text" class="form-control" id="nombreSugerencia" name="nombre" placeholder="Tu nombre">
+                <input type="text" class="form-control" id="nombreSugerencia" name="nombre"
+                  placeholder="Tu nombre" maxlength="60">
               </div>
 
               <div class="form-group">
                 <input type="text" class="form-control" id="descripcionSugerencia" name="descripcion"
-                  placeholder="Nombre de cancion y autor">
+                  placeholder="Nombre de cancion y autor" maxlength="100">
               </div>
 
               <div class="form-group">
                 <input type="text" class="form-control" id="linkSugerencia" name="link"
-                  placeholder="Si lo desea ingrese el link de youtube, spotify, etc.">
+                  placeholder="Si lo desea ingrese el link de youtube, spotify, etc." maxlength="200">
               </div>
 
 
@@ -3786,28 +4143,22 @@
           </div>
 
         </div>
-        <div class="modal-body" style="max-height:calc(70vh - 260px); overflow-y:auto; overflow-x:hidden;">
-
-          <div
-            style="background:transparent;  color:#4a4a42; font-family:Georgia,serif; line-height:1.8; box-shadow:0 12px 28px rgba(0,0,0,0.06);">
-            <p style="margin-bottom:1rem; font-size:1rem;">
-              Queridos invitados,
-            </p>
-            <p style="margin-bottom:1rem; font-size:1rem;">
-              Para que este día sea inolvidable y todos podamos disfrutar cada momento con tranquilidad, les pedimos
-              seguir una pequeña guía de cortesía.
-            </p>
-            <p style="margin-bottom:0.75rem; font-size:1rem;"><strong>Ceremonia sin celulares:</strong></p>
-            <p style="margin-bottom:0.5rem; font-size:0.95rem; color:#6d635a;">
-              Durante la ceremonia religiosa, especialmente en la iglesia, les invitamos a dejar los dispositivos
-              guardados. Nuestro fotógrafo estará presente para capturar los instantes más hermosos y luego
-              compartiremos con ustedes las memorias de este día.
-            </p>
-            <p style="margin-top:1.5rem; font-size:0.95rem; color:#7b6f65; font-style:italic;">
-              Gracias por acompañarnos con afecto y por ayudarnos a vivir una celebración llena de presencia y belleza.
-            </p>
+        <div class="modal-header">
+          <h5 class="modal-title">Tips para el día</h5>
+        </div>
+        <div class="modal-body" style="max-height:calc(100vh - 260px); overflow-y:auto; overflow-x:hidden;">
+          <p>Algunos detalles para que disfrutemos juntos este día especial. Haz clic en cada imagen para verla completa.</p>
+          <div class="d-flex flex-wrap justify-content-center align-items-center">
+            <a href="www.fixdate.io/modelo-invitacion/30/img/tips1.jpeg" data-fancybox="tips" data-caption="Tips 1" style="max-width:100px; margin:8px;">
+              <img src="www.fixdate.io/modelo-invitacion/30/img/tips1.jpeg" alt="Tip 1" style="width:100%; height:auto; border-radius:12px; display:block;" />
+            </a>
+            <a href="www.fixdate.io/modelo-invitacion/30/img/tips2.jpeg" data-fancybox="tips" data-caption="Tips 1" style="max-width:100px; margin:8px;">
+              <img src="www.fixdate.io/modelo-invitacion/30/img/tips2.jpeg" alt="Tip 1" style="width:100%; height:auto; border-radius:12px; display:block;" />
+            </a>
+            <a href="www.fixdate.io/modelo-invitacion/30/img/tips3.jpeg" data-fancybox="tips" data-caption="Tips 2" style="max-width:100px; margin:8px;">
+              <img src="www.fixdate.io/modelo-invitacion/30/img/tips3.jpeg" alt="Tip 2" style="width:100%; height:auto; border-radius:12px; display:block;" />
+            </a>
           </div>
-
         </div>
 
 
@@ -4460,34 +4811,35 @@
 
   <!-- Opciones carrusel galeria -->
   <script>
+    var arrowPrev = '<button type="button" class="slick-prev slick-arrow-custom">' +
+      '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="15,18 9,12 15,6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      '</button>';
+    var arrowNext = '<button type="button" class="slick-next slick-arrow-custom">' +
+      '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="9,6 15,12 9,18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      '</button>';
+
     $('.carrusel').slick({
-      lazyLoad: 'ondemand',
-      autoplay: true,
-      autoplaySpeed: 2000,
-      centerMode: true,
-      dots: true,
-      centerPadding: '20px',
-      slidesToShow: 3,
-      prevArrow: false,
-      nextArrow: false,
-      responsive: [{
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: '40px',
-          slidesToShow: 3
+      lazyLoad      : 'ondemand',
+      autoplay      : true,
+      autoplaySpeed : 2500,
+      infinite      : true,
+      centerMode    : true,
+      centerPadding : '20px',
+      slidesToShow  : 3,
+      dots          : false,
+      prevArrow     : arrowPrev,
+      nextArrow     : arrowNext,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: { centerMode: true, centerPadding: '30px', slidesToShow: 2,
+            prevArrow: arrowPrev, nextArrow: arrowNext }
+        },
+        {
+          breakpoint: 480,
+          settings: { centerMode: true, centerPadding: '30px', slidesToShow: 1,
+            prevArrow: arrowPrev, nextArrow: arrowNext }
         }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: '40px',
-          slidesToShow: 1
-        }
-      }
       ]
     });
 
@@ -4495,34 +4847,20 @@
       e.preventDefault();
 
       var clickedSrc = $(this).attr('href');
-      var basePath = 'www.fixdate.io/modelo-invitacion/30/img/galeria/';
-      var gallery = [];
-
-      for (var i = 1; i <= 14; i++) {
-        var filename = i + '.jpg';
-        var src = basePath + filename;
-        gallery.push({
-          src: src,
-          opts: {
-            caption: 'Foto ' + i
-          }
-        });
-      }
-
+      var gallery    = [];
       var startIndex = 0;
-      for (var j = 0; j < gallery.length; j++) {
-        if (gallery[j].src === clickedSrc) {
-          startIndex = j;
-          break;
-        }
-      }
+
+      /* Construir galería desde el DOM para respetar nombres reales de archivo */
+      $('a[data-fancybox="galeria"]').each(function (i) {
+        var src = $(this).attr('href');
+        gallery.push({ src: src, opts: { thumb: src } });
+        if (src === clickedSrc) startIndex = i;
+      });
 
       $.fancybox.open(gallery, {
-        loop: false,
-        buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
-        thumbs: {
-          autoStart: true
-        }
+        loop    : true,
+        buttons : ['slideShow', 'fullScreen', 'thumbs', 'close'],
+        thumbs  : { autoStart: false }
       }, startIndex);
     });
   </script>
@@ -5282,9 +5620,9 @@
 
       // Aceptar webp?
       if (support_format_webp()) {
-        var imageParallax = 'img/portada-3.JPG';
+        var imageParallax = 'img/portada-3.jpg';
       } else {
-        var imageParallax = 'img/portada-3.JPG';
+        var imageParallax = 'img/portada-3.jpg';
       }
 
     }
@@ -5366,12 +5704,24 @@
       var invitado = $('#nombreSugerencia').val().trim();
       var link = $('#linkSugerencia').val().trim();
 
-      if (!cancion || !invitado) {
-        alert('Por favor, completa todos los campos.');
-        return;
-      }
+      if (!invitado)        { alert('Por favor ingresa tu nombre.');             return; }
+      if (invitado.length > 60)  { alert('El nombre es demasiado largo (máx 60 caracteres).'); return; }
+      if (!cancion)         { alert('Por favor ingresa el nombre de la canción.'); return; }
+      if (cancion.length > 100)  { alert('El nombre de la canción es muy largo (máx 100 caracteres).'); return; }
+      if (link.length > 200)     { alert('El link es demasiado largo (máx 200 caracteres.');  return; }
+      if (link && !link.startsWith('http')) { alert('El link debe comenzar con http:// o https://'); return; }
+
+      // Mostrar spinner mientras envía
+      $('#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5').hide();
+      $('#modalSugerirCancion .msj-content').show().html(
+        '<div class="ll-sending-wrap">' +
+          '<div class="ll-ring-outer"><div class="ll-ring-inner"></div></div>' +
+          '<div class="ll-sending-dots"><span></span><span></span><span></span></div>' +
+          '<p class="ll-sending-text">Enviando tu canción...</p>' +
+        '</div>'
+      );
+
       const formData = new FormData();
-      
       formData.append("id", id);
       formData.append("invitado", invitado);
       formData.append("cancion", cancion);
@@ -5379,34 +5729,25 @@
 
       fetch(
         "https://script.google.com/macros/s/AKfycbzCNBIm3YNwPubOjTWkfdPxsa_6jIIZhB7i83PQvR5nKJ3bY2RUDddmZ340czNhpUOA/exec",
-        {
-          method: "POST",
-          body: formData
-        }
+        { method: "POST", body: formData }
       )
         .then(r => r.json())
         .then(data => {
           console.log(data);
-          
-          // Show success message
-          $('#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5').hide();
-          $('#modalSugerirCancion .msj-content').show().html('<p style="text-align:center; color:green; font-weight:bold;">¡Sugerencia enviada con éxito!</p>');
-          
-          // Clear form fields
+          $('#modalSugerirCancion .msj-content').html('<p style="text-align:center;color:var(--color-2);font-weight:bold;">¡Sugerencia enviada con éxito!</p>');
           $('#nombreSugerencia').val('');
           $('#descripcionSugerencia').val('');
           $('#linkSugerencia').val('');
-          
-          // Close modal after 2 seconds
           setTimeout(function() {
             $('#modalSugerirCancion').modal('hide');
-            // Reset modal to show form again next time
             $('#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5').show();
             $('#modalSugerirCancion .msj-content').hide().html('');
           }, 2000);
         })
         .catch(error => {
           console.error('Error:', error);
+          $('#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5').show();
+          $('#modalSugerirCancion .msj-content').hide().html('');
           alert('Error al enviar la sugerencia. Por favor intenta de nuevo.');
         });
     });
