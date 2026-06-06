@@ -257,8 +257,17 @@
     bottom: -2px;
   }
 
+  /* Solución unificada para todos los modales con círculo superior */
+  .img-top-modal {
+    height: 40px !important;
+    margin-bottom: 10px !important;
+  }
+  
   .modal-dialog .white-circle-icon {
-    top: -55px;
+    width: 90px !important;
+    height: 90px !important;
+    padding: 20px !important;
+    top: -45px !important;
   }
 
   section.confirmacion-asistencia {
