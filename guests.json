@@ -612,6 +612,26 @@
       "MARIA JOSE BUITRAGO"
     ]
   },
+
+  "SEGURO-CORTES": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "JAVIER SEGURO VARELA",
+      "YULI CORTES HOLGUIN"
+    ]
+  },
+
+  "EMMA-FERNANDO": {
+    "pases": 2,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "EMMA",
+      "FERNANDO"
+    ]
+  },
   "nan": {
     "pases": 3,
     "acompanantes": 0,
