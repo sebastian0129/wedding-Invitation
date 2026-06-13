@@ -649,6 +649,22 @@
       "JUAN CARLOS DELGADO MORA"
     ]
   },
+  "elkin-villalobos": {
+    "pases": 1,
+    "acompanantes": 1,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ELKIN VILLALOBOS PEREZ"
+    ]
+  },
+  "andres-vallejo": {
+    "pases": 1,
+    "acompanantes": 0,
+    "mensaje": "Tu presencia es lo más importante. ¡No faltes!",
+    "invitados": [
+      "ANDRES FELIPE VALLEJO PIEDRAHITA"
+    ]
+  },
   "nan": {
     "pases": 3,
     "acompanantes": 0,
